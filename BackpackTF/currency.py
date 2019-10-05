@@ -12,44 +12,10 @@ class Currency:
         else:
             self.api_key = apikey
 
-
-    #
-    # Converts quality string to quality int
-    #
-    # string - the input quality of the item
-    #
-    def qualityStringToInt(self, string):
-        checkStr = string.lower()
-
-        if checkStr == "normal":
-            return 0
-        elif checkStr == "genuine":
-            return 1
-        elif checkStr == "vintage":
-            return 3
-        elif checkStr == "unusual":
-            return 5
-        elif checkStr == "unique":
-            return 6
-        elif checkStr == "community":
-            return 7
-        elif checkStr == "developer":
-            return 8
-        elif checkStr == "selfmade":
-            return 9
-        elif checkStr == "strange":
-            return 11
-        elif checkStr == "haunted":
-            return 13
-        elif checkStr == "collectors":
-            return 14
-        elif checkStr == "paintkitweapon":
-            return 15
-
-
     #
     # Function Returns A JSON of the value of currencies
     #
+
     def getCurrencies(self):
         import requests
         import json
@@ -61,7 +27,6 @@ class Currency:
             return currencyJSON['response']['currencies']
         else:
             raise Exception('Your API key is invalid')
-
 
     #
     # Gets Price History of a specific item in an array of previous values
@@ -76,6 +41,7 @@ class Currency:
     #   definition index 1086-14 is the index for a collector's festive wrangler
     #   here's a link to an item http://prntscr.com/pf2s0h
     #
+
     def priceHistory(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
@@ -93,7 +59,8 @@ class Currency:
 
         encoded = urllib.parse.urlencode(payload)
 
-        r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
+        r = requests.get(
+            "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
@@ -104,7 +71,6 @@ class Currency:
         if success:
             return jsondata['response']['history']
 
-
     #
     # Gets Price of a specific item
     #
@@ -114,6 +80,7 @@ class Currency:
     # Tradable - get the item's tradable status
     # PriceIndex - Not really sure to be honest
     #
+
     def itemPrice(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
@@ -131,7 +98,8 @@ class Currency:
 
         encoded = urllib.parse.urlencode(payload)
 
-        r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
+        r = requests.get(
+            "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
@@ -142,23 +110,24 @@ class Currency:
         if success:
             return jsondata['response']['history'][len(jsondata['response']['history']) - 1]
 
-
     #
     # Gets all prices, requires an elevated API key
     #
     # Since - Only prices that have been updated since the unix EPOCH will be shown
     #
+
     def getAllPrices(self, raw=2, since=0):
         import requests
         import json
 
-        r = requests.get("https://backpack.tf/api/IGetPrices/v4?raw=" + str(raw) + "&since=" + str(since) + "&key=" + self.api_key)
+        r = requests.get("https://backpack.tf/api/IGetPrices/v4?raw=" +
+                         str(raw) + "&since=" + str(since) + "&key=" + self.api_key)
         jsondata = json.loads(r.text)
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
                 success = True
         except:
             return jsondata
-        
+
         if success:
             return jsondata['response']
