@@ -42,7 +42,7 @@ class Currency:
     #   here's a link to an item http://prntscr.com/pf2s0h
     #
 
-    def priceHistory(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
+    def priceHistory(self, name="Pyromancer's Mask", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
         import json
@@ -81,7 +81,7 @@ class Currency:
     # PriceIndex - Not really sure to be honest
     #
 
-    def itemPrice(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
+    def itemPrice(self, name="Pyromancer's Mask", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
         import json
