@@ -43,6 +43,8 @@ print(price)
 ### The Account Class
 
 __init__
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | client_id     | from your backpack.tf app [here](https://backpack.tf/developer/apps) |
@@ -51,6 +53,8 @@ __init__
 
 
 createListing - creates a listing / classified on backpack.tf
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | intent     | 0 (Buy) or 1 (Sell) |
@@ -68,6 +72,8 @@ returns 0 or 1 for success or failure.
 
 
 search_classifieds - searches for classifieds
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | intent     | either sell, buy, or both |
@@ -101,6 +107,8 @@ __init__
 
 
 getCurrencies - gets currency values
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | None       | None  |
@@ -109,6 +117,8 @@ returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e
 
 
 priceHistory - gets the price history for a given item
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
@@ -121,6 +131,8 @@ returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/
 
 
 itemPrice - gets the current price for a given item
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
@@ -133,6 +145,8 @@ returns a single dictionary of current value. [Here's](https://gist.github.com/d
 
 
 getAllPrices - gets all prices
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | raw       | shows a value_low field   |
@@ -144,12 +158,16 @@ returns a kind of weird json file. [Here's](https://gist.github.com/davidteather
 ### The MiscUtils Class
 
 __init__
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | None       | None  |
 
 
 quality_String_To_Int
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | string       | The string of the quality. Ex: "unique"  |
@@ -157,6 +175,8 @@ quality_String_To_Int
 returns 0-15
 
 wear_Tier_String_To_Int
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | string       | The string of the wear_tier. Ex: "factory new"  |
@@ -164,6 +184,8 @@ wear_Tier_String_To_Int
 returns 1-5
 
 killstreaker_Tier_String_To_Int
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | string       | The string of the killstreaker tier. Ex: "professional"  |
@@ -171,6 +193,8 @@ killstreaker_Tier_String_To_Int
 returns 1-3
 
 sheen_String_To_Int
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | string       | The string of the sheen. Ex: "mean green"  |
@@ -178,6 +202,8 @@ sheen_String_To_Int
 return 1-7
 
 steam_id_to_account_id
+
+
 | Attributes    | Description   |
 | ------------- | ------------- |
 | string       | The string of the steam_id.  |
