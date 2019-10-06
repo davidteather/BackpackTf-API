@@ -52,7 +52,7 @@ __init__
 | api_key       | your api key from [here](https://backpack.tf/developer/apikey/view)  |
 
 
-createListing - creates a listing / classified on backpack.tf
+#### createListing - creates a listing / classified on backpack.tf
 
 
 | Attributes    | Description   |
@@ -71,7 +71,7 @@ createListing - creates a listing / classified on backpack.tf
 returns 0 or 1 for success or failure.
 
 
-search_classifieds - searches for classifieds
+#### search_classifieds - searches for classifieds
 
 
 | Attributes    | Description   |
@@ -106,7 +106,7 @@ __init__
 | apikey        | your api key from [here](https://backpack.tf/developer/apikey/view) |
 
 
-getCurrencies - gets currency values
+#### getCurrencies - gets currency values
 
 
 | Attributes    | Description   |
@@ -116,7 +116,7 @@ getCurrencies - gets currency values
 returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e64c3a187ad28db26d1a) an example json.
 
 
-priceHistory - gets the price history for a given item
+#### priceHistory - gets the price history for a given item
 
 
 | Attributes    | Description   |
@@ -130,7 +130,7 @@ priceHistory - gets the price history for a given item
 returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/db87fbe0bfd7d0ac88cb5412d1bba878) an example.
 
 
-itemPrice - gets the current price for a given item
+#### itemPrice - gets the current price for a given item
 
 
 | Attributes    | Description   |
@@ -144,7 +144,7 @@ itemPrice - gets the current price for a given item
 returns a single dictionary of current value. [Here's](https://gist.github.com/davidteather/a791078ef11d6977d7a9b77d249bd78e) an example.
 
 
-getAllPrices - gets all prices
+#### getAllPrices - gets all prices
 
 
 | Attributes    | Description   |
@@ -165,7 +165,7 @@ __init__
 | None       | None  |
 
 
-quality_String_To_Int
+#### quality_String_To_Int
 
 
 | Attributes    | Description   |
@@ -174,7 +174,7 @@ quality_String_To_Int
 
 returns 0-15
 
-wear_Tier_String_To_Int
+#### wear_Tier_String_To_Int
 
 
 | Attributes    | Description   |
@@ -183,7 +183,7 @@ wear_Tier_String_To_Int
 
 returns 1-5
 
-killstreaker_Tier_String_To_Int
+##### killstreaker_Tier_String_To_Int
 
 
 | Attributes    | Description   |
@@ -192,7 +192,7 @@ killstreaker_Tier_String_To_Int
 
 returns 1-3
 
-sheen_String_To_Int
+##### sheen_String_To_Int
 
 
 | Attributes    | Description   |
@@ -201,7 +201,7 @@ sheen_String_To_Int
 
 return 1-7
 
-steam_id_to_account_id
+#### steam_id_to_account_id
 
 
 | Attributes    | Description   |
