@@ -94,8 +94,8 @@ returns a dictionary. [Here](https://gist.github.com/davidteather/109acc0acd7e7d
 
 __init__
 | Attributes    | Description   |
-| ------------- | ------------- |
-| apikey       | your api key from [here](https://backpack.tf/developer/apikey/view)  |
+| ------------- | ----------------------------------------------------------------=-- |
+| apikey        | your api key from [here](https://backpack.tf/developer/apikey/view) |
 
 
 getCurrencies - gets currency values
