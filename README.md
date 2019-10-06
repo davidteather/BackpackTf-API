@@ -93,8 +93,10 @@ returns a dictionary. [Here](https://gist.github.com/davidteather/109acc0acd7e7d
 ### The Currency Class
 
 __init__
-| Attributes    | Description   |
-| ------------- | ----------------------------------------------------------------=-- |
+
+
+| Attributes    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
 | apikey        | your api key from [here](https://backpack.tf/developer/apikey/view) |
 
 
