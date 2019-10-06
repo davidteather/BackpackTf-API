@@ -21,7 +21,6 @@ setuptools.setup(
   install_requires=[
           'requests',
           'oauth2',
-          'struct',
           'lxml'
       ],
   classifiers=[

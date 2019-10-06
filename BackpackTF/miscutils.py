@@ -148,6 +148,16 @@ class MiscUtils:
         except:
             return ""
 
+    
+    #
+    # Converts paint string to paint int
+    #
+    def paint_String_To_Int(self, string):
+        try:
+            return self.paintsObj[string.lower()]
+        except:
+            return ""
+
 
     #
     # Converts steam ID into the account_id account ID is used in trading requests
