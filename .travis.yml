@@ -12,9 +12,6 @@ matrix:
     - python: "3.8-dev"
     - python: "nightly"
 
-addons:
-  firefox: "62.0.3"
-
 install:
   - pip install pytest
 
