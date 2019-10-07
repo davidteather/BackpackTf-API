@@ -2,7 +2,7 @@
 # BackpackTF-API
 This is an unoffical api wrapper for the Backpack.tf API in python. You can do a lot with this API keep reading for more information
 
- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/releases) [![GitHub](https://img.shields.io/github/license/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/blob/master/LICENSE) [![PyPI - Downloads](https://img.shields.io/pypi/dm/BackpackTF)](https://pypi.org/project/BackPackTF/)
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/releases) [![Build Status](https://travis-ci.com/davidteather/BackpackTf-API.svg?branch=master)](https://travis-ci.com/davidteather/BackpackTf-API) [![GitHub](https://img.shields.io/github/license/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/blob/master/LICENSE) [![PyPI - Downloads](https://img.shields.io/pypi/dm/BackpackTF)](https://pypi.org/project/BackPackTF/)
 
 ## Important Information
 * If this API stops working for any reason open an issue.
@@ -96,6 +96,19 @@ returns 0 or 1 for success or failure.
 
 returns a dictionary. [Here](https://gist.github.com/davidteather/109acc0acd7e7d59f8192d8d8cfcba7c)'s an example json
 
+
+#### extract_trade_url - extracts the trade url with token from a listing
+
+
+| Attributes    | Description   |
+| ------------- | ------------- |
+| listingJSON   | This is the json object of a classified listing on backpack.tf. You can get this using the method above. |
+| proxy     | This is an optional field, provide a dictionary that fits the python requests module requirements. See [here](https://stackoverflow.com/questions/8287628/proxies-with-python-requests-module) |
+
+
+returns the trade url as a string.
+
+
 ### The Currency Class
 
 __init__
@@ -162,7 +175,7 @@ __init__
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| None       | None  |
+| None          | None          |
 
 
 #### quality_String_To_Int
@@ -170,43 +183,63 @@ __init__
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string       | The string of the quality. Ex: "unique"  |
-
-returns 0-15
-
-#### wear_Tier_String_To_Int
+| string        | The string of the quality. Ex: "unique"  |
 
 
-| Attributes    | Description   |
-| ------------- | ------------- |
-| string       | The string of the wear_tier. Ex: "factory new"  |
-
-returns 1-5
-
-##### killstreaker_Tier_String_To_Int
+#### particle_String_To_Int
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string       | The string of the killstreaker tier. Ex: "professional"  |
+| string        | The string of the particle effect. |
 
-returns 1-3
 
-##### sheen_String_To_Int
+#### rarity_String_To_Int
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string       | The string of the sheen. Ex: "mean green"  |
+| string        | The string of the rarity.  |
 
-return 1-7
+
+#### origin_String_To_Int
+
+
+| Attributes    | Description   |
+| ------------- | ------------- |
+| string        | The string of the origin. |
+
+
+#### wear_tier_String_To_Int
+
+
+| Attributes    | Description   |
+| ------------- | ------------- |
+| string        | The string of the wear_tier. |
+
+
+#### killstreaker_String_To_Int
+
+
+| Attributes    | Description   |
+| ------------- | ------------- |
+| string        | The string of the killstreaker. |
+
+
+#### strange_parts_String_To_Int
+
+
+| Attributes    | Description   |
+| ------------- | ------------- |
+| string        | The string of the strange part. |
+
 
 #### steam_id_to_account_id
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string       | The string of the steam_id.  |
+| string        | The string of the steam_id.  |
 
 returns an int of the account id.
 

@@ -202,3 +202,41 @@ class Account:
         jsondata = json.loads(r.text)
 
         return jsondata
+
+
+    #
+    # This function extracts the trade url.
+    #
+    # listingJSON - the JSON object from the search_listings under whatever the listing thing you use is. 
+    #
+    def extract_trade_url(self, listingJSON, proxy=None):
+        from lxml import html
+        import requests
+        import urllib.parse
+        import json
+
+        payload = {
+            "item": listingJSON['item']['name'],
+            "steamid": listingJSON['steamid'],
+            "quality": listingJSON['item']['quality']
+        }
+
+        encoded = urllib.parse.urlencode(payload)
+
+        if proxy == None:
+            r = requests.get(
+                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20"))
+        else:
+            r = requests.get(
+                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20"), proxies=proxy)
+        
+        with open('test.html', 'w+', encoding='utf-8') as thing:
+            thing.write(r.text)
+
+        tree = html.fromstring(r.text)
+        
+        try:
+            url = tree.xpath("//li[@id='listing-" + listingJSON['id'] + "']/div[@class='listing-item']/div")[0].get('data-listing_offers_url')
+            return url
+        except:
+            raise IndexError('List index out of range')
