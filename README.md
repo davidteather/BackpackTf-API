@@ -2,7 +2,7 @@
 # BackpackTF-API
 This is an unoffical api wrapper for the Backpack.tf API in python. You can do a lot with this API keep reading for more information
 
- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/releases) [![GitHub](https://img.shields.io/github/license/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/blob/master/LICENSE) [![PyPI - Downloads](https://img.shields.io/pypi/dm/BackpackTF)](https://pypi.org/project/BackPackTF/)
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/releases) [![Build Status](https://travis-ci.com/davidteather/BackpackTf-API.svg?branch=master)](https://travis-ci.com/davidteather/BackpackTf-API) [![GitHub](https://img.shields.io/github/license/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/blob/master/LICENSE) [![PyPI - Downloads](https://img.shields.io/pypi/dm/BackpackTF)](https://pypi.org/project/BackPackTF/)
 
 ## Important Information
 * If this API stops working for any reason open an issue.
