@@ -71,14 +71,6 @@ __init__
 returns 0 or 1 for success or failure.
 
 
-#### deleteListing - deletes a listing by listing ID
-
-| Attributes    | Description   |
-| ------------- | ------------- |
-| listing_id    | The id of the listing you want to delete |
-
-returns "" on success, will be changed in a future update to be 0/1.
-
 #### search_classifieds - searches for classifieds
 
 
