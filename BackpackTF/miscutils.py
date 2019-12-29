@@ -63,101 +63,132 @@ class MiscUtils:
     #
     # Converts quality string to quality int
     #
-    def quality_String_To_Int(self, string):
+    def quality_string_to_int(self, string):
         try:
             return self.qualitiesObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "quality_string_to_int"
+    quality_String_To_Int = quality_string_to_int
+
     #
     # Converts particle string to particle int
     #
-    def particle_String_To_Int(self, string):
+    def particle_string_to_int(self, string):
         try:
             return self.particleObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "particle_string_to_int"
+    particle_String_To_Int = particle_string_to_int
+
     #
     # Converts rarity string to rarity int
     #
-    def rarity_String_To_Int(self, string):
+    def rarity_string_to_int(self, string):
         try:
             return self.raritiesObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "rarity_string_to_int"
+    rarity_String_To_Int = rarity_string_to_int
     
     #
     # Origin quality string to origin int
     #
-    def origin_String_To_Int(self, string):
+    def origin_string_to_int(self, string):
         try:
             return self.originsObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "origin_string_to_int"
+    origin_String_To_Int = origin_string_to_int
 
     #
     # Converts wear_tier string to wear_tier int
     #
-    def wear_tier_String_To_Int(self, string):
+    def wear_tier_string_to_int(self, string):
         try:
             return self.wear_tiersObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "wear_tier_string_to_int"
+    wear_tier_String_To_Int = wear_tier_string_to_int
 
     #
     # Converts killstreaker string to killstreaker int
     #
-    def killstreaker_String_To_Int(self, string):
+    def killstreaker_string_to_int(self, string):
         try:
             return self.killstreakers[string.lower()]
         except:
             return ""
 
-    
+    # alias for compatibility with older versions
+    # please use the new name, "killstreaker_string_to_int"
+    killstreaker_String_To_Int = killstreaker_string_to_int
 
     #
     # Converts sheen string to sheen int
     #
-    def sheen_String_To_Int(self, string):
+    def sheen_string_to_int(self, string):
         try:
             return self.sheensObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "sheen_string_to_int"
+    sheen_String_To_Int = sheen_string_to_int
 
     #
     # Converts killstreak_tier string to killstreak_tier int
     #
-    def killstreak_tier_String_To_Int(self, string):
+    def killstreak_tier_string_to_int(self, string):
         try:
             return self.killstreak_tiers[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "killstreak_tier_string_to_int"
+    killstreak_tier_String_To_Int = killstreak_tier_string_to_int
 
     #
     # Converts strange_part string to strange_part int
     #
-    def strange_parts_String_To_Int(self, string):
+    def strange_parts_string_to_int(self, string):
         try:
             return self.strange_partsObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "strange_parts_string_to_int"
+    strange_parts_String_To_Int = strange_parts_string_to_int
     
     #
     # Converts paint string to paint int
     #
-    def paint_String_To_Int(self, string):
+    def paint_string_to_int(self, string):
         try:
             return self.paintsObj[string.lower()]
         except:
             return ""
 
+    # alias for compatibility with older versions
+    # please use the new name, "paint_string_to_int"
+    paint_String_To_Int = paint_string_to_int
 
     #
     # Converts steam ID into the account_id account ID is used in trading requests
