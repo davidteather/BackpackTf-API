@@ -21,7 +21,8 @@ setuptools.setup(
   install_requires=[
           'requests',
           'oauth2',
-          'lxml'
+          'lxml',
+          'requests_oauthlib'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
