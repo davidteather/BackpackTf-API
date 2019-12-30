@@ -135,7 +135,7 @@ returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
-| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("unique") to get it |
+| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
 | priceindex       | complicated, most of the time is 0. [More info](https://image.prntscr.com/image/-zjCD9FiS0ijpGHtG8gNBA.png) |
@@ -149,7 +149,7 @@ returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
-| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("unique") to get it |
+| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
 | priceindex       | complicated, most of the time is 0. [More info](https://image.prntscr.com/image/-zjCD9FiS0ijpGHtG8gNBA.png) |
@@ -183,7 +183,7 @@ __init__
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string        | The string of the quality. Ex: "unique"  |
+| string        | The string of the quality. Ex: "Unique"  |
 
 
 #### particle_string_to_int
