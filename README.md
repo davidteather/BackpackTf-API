@@ -52,7 +52,7 @@ __init__
 | api_key       | your api key from [here](https://backpack.tf/developer/apikey/view)  |
 
 
-#### createListing - creates a listing / classified on backpack.tf
+#### create_listing - creates a listing / classified on backpack.tf
 
 
 | Attributes    | Description   |
@@ -119,7 +119,7 @@ __init__
 | apikey        | your api key from [here](https://backpack.tf/developer/apikey/view) |
 
 
-#### getCurrencies - gets currency values
+#### get_currencies - gets currency values
 
 
 | Attributes    | Description   |
@@ -129,13 +129,13 @@ __init__
 returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e64c3a187ad28db26d1a) an example json.
 
 
-#### priceHistory - gets the price history for a given item
+#### price_history - gets the price history for a given item
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
-| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("unique") to get it |
+| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
 | priceindex       | complicated, most of the time is 0. [More info](https://image.prntscr.com/image/-zjCD9FiS0ijpGHtG8gNBA.png) |
@@ -143,13 +143,13 @@ returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e
 returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/db87fbe0bfd7d0ac88cb5412d1bba878) an example.
 
 
-#### itemPrice - gets the current price for a given item
+#### item_price - gets the current price for a given item
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
 | name       | the name of the item you want to search for  |
-| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("unique") to get it |
+| quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
 | priceindex       | complicated, most of the time is 0. [More info](https://image.prntscr.com/image/-zjCD9FiS0ijpGHtG8gNBA.png) |
@@ -157,7 +157,7 @@ returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/
 returns a single dictionary of current value. [Here's](https://gist.github.com/davidteather/a791078ef11d6977d7a9b77d249bd78e) an example.
 
 
-#### getAllPrices - gets all prices
+#### get_all_prices - gets all prices
 
 
 | Attributes    | Description   |
@@ -178,15 +178,15 @@ __init__
 | None          | None          |
 
 
-#### quality_String_To_Int
+#### quality_string_to_int
 
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| string        | The string of the quality. Ex: "unique"  |
+| string        | The string of the quality. Ex: "Unique"  |
 
 
-#### particle_String_To_Int
+#### particle_string_to_int
 
 
 | Attributes    | Description   |
@@ -194,7 +194,7 @@ __init__
 | string        | The string of the particle effect. |
 
 
-#### rarity_String_To_Int
+#### rarity_string_to_int
 
 
 | Attributes    | Description   |
@@ -202,7 +202,7 @@ __init__
 | string        | The string of the rarity.  |
 
 
-#### origin_String_To_Int
+#### origin_string_to_int
 
 
 | Attributes    | Description   |
@@ -210,7 +210,7 @@ __init__
 | string        | The string of the origin. |
 
 
-#### wear_tier_String_To_Int
+#### wear_tier_string_to_int
 
 
 | Attributes    | Description   |
@@ -218,7 +218,7 @@ __init__
 | string        | The string of the wear_tier. |
 
 
-#### killstreaker_String_To_Int
+#### killstreaker_string_to_int
 
 
 | Attributes    | Description   |
@@ -226,7 +226,7 @@ __init__
 | string        | The string of the killstreaker. |
 
 
-#### strange_parts_String_To_Int
+#### strange_parts_string_to_int
 
 
 | Attributes    | Description   |

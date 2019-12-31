@@ -15,8 +15,7 @@ class Currency:
     #
     # Function Returns A JSON of the value of currencies
     #
-
-    def getCurrencies(self):
+    def get_currencies(self):
         import requests
         import json
 
@@ -27,6 +26,10 @@ class Currency:
             return currencyJSON['response']['currencies']
         else:
             raise Exception('Your API key is invalid')
+
+    # alias for compatibility with older versions
+    # please use the new name, "get_currencies"
+    getCurrencies = get_currencies
 
     #
     # Gets Price History of a specific item in an array of previous values
@@ -42,7 +45,7 @@ class Currency:
     #   here's a link to an item http://prntscr.com/pf2s0h
     #
 
-    def priceHistory(self, name="Pyromancer's Mask", quality="Unique", craftable=1, tradable=1, priceIndex=0):
+    def price_history(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
         import json
@@ -70,6 +73,10 @@ class Currency:
 
         if success:
             return jsondata['response']['history']
+    
+    # alias for compatibility with older versions
+    # please use the new name, "price_history"
+    priceHistory = price_history
 
     #
     # Gets Price of a specific item
@@ -81,7 +88,7 @@ class Currency:
     # PriceIndex - Not really sure to be honest
     #
 
-    def itemPrice(self, name="Pyromancer's Mask", quality="Unique", craftable=1, tradable=1, priceIndex=0):
+    def item_price(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
         import requests
         import urllib.parse
         import json
@@ -110,13 +117,17 @@ class Currency:
         if success:
             return jsondata['response']['history'][len(jsondata['response']['history']) - 1]
 
+    # alias for compatibility with older versions
+    # please use the new name, "item_price"
+    itemPrice = item_price
+
     #
     # Gets all prices, requires an elevated API key
     #
     # Since - Only prices that have been updated since the unix EPOCH will be shown
     #
 
-    def getAllPrices(self, raw=2, since=0):
+    def get_all_prices(self, raw=2, since=0):
         import requests
         import json
 
@@ -131,3 +142,7 @@ class Currency:
 
         if success:
             return jsondata['response']
+
+    # alias for compatibility with older versions
+    # please use the new name, "get_all_prices"
+    getAllPrices = get_all_prices
