@@ -26,8 +26,7 @@ class Account:
     #
     # id - the listing's ID
     #
-
-    def getListing(self, listing_id=0):
+    def get_listing(self, listing_id=0):
         from requests_oauthlib import OAuth2Session
         from oauthlib.oauth2 import TokenExpiredError
 
@@ -46,12 +45,16 @@ class Account:
 
         return r.text
 
+    # alias for compatibility with older versions
+    # please use the new name, "get_listing"
+    getListing = get_listing
+
     #
     # Delete a listing by ID
     #
     # id - the listing's ID
     #
-    def deleteListing(self, listing_id=0):
+    def delete_listing(self, listing_id=0):
         from requests_oauthlib import OAuth2Session
         from oauthlib.oauth2 import TokenExpiredError
 
@@ -69,6 +72,10 @@ class Account:
             "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id))
 
         return r.text
+
+    # alias for compatibility with older versions
+    # please use the new name, "delete_listing"
+    deleteListing = delete_listing
 
     #
     # Create a listing
@@ -92,8 +99,7 @@ class Account:
     #
     # returns int: 0 or 1, states the success of the listing
     #
-
-    def createListing(self, intent=0, id=0, quality=6, item_name="Haunted Hat", craftable=1, priceindex=0, offers=0, buyout=1, promoted=0, details="", currencies={"metal": 0}, account_token=""):
+    def create_listing(self, intent=0, id=0, quality=6, item_name="", craftable=1, priceindex=0, offers=0, buyout=1, promoted=0, details="", currencies={"metal": 0}, account_token=""):
         from requests_oauthlib import OAuth2Session
         from oauthlib.oauth2 import BackendApplicationClient
         from oauthlib.oauth2 import TokenExpiredError
@@ -147,6 +153,10 @@ class Account:
         except:
             return jsonResponse
 
+    # alias for compatibility with older versions
+    # please use the new name, "create_listing"
+    createListing = create_listing
+
     #
     # This function searches for classified listings
     #
@@ -168,7 +178,7 @@ class Account:
     # sheen - 0-7, in order team shine, deadly daffodil, manndarin, mean green, agonizing emerald, villainous violet, hot rod
     # killstreaker - the id of the killstreaker
     #
-    def search_Classifieds(self, intent="dual", page_size=10, fold=1, item_name="Soda Popper", steamid="", tradable="", craftable="", australium="", wear_tier="", quality="",
+    def search_classifieds(self, intent="dual", page_size=10, fold=1, item_name="", steamid="", tradable="", craftable="", australium="", wear_tier="", quality="",
                            paint="", particle="", killstreak_tier="", sheen="", killstreaker="", page=0, texture_name=""):
         import requests
         import urllib.parse
@@ -202,6 +212,10 @@ class Account:
         jsondata = json.loads(r.text)
 
         return jsondata
+
+    # alias for compatibility with older verisions
+    # please use the new function name, "search_classifieds" (lowercase c)
+    search_Classifieds = search_classifieds
 
 
     #

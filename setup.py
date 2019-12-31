@@ -19,9 +19,9 @@ setuptools.setup(
   download_url = 'https://github.com/davidteather/BackpackTf-API/tarball/master', 
   keywords = ['backpacktf', 'python3', 'tf2', 'unofficial', 'backpack.tf', 'trading-bot', 'api'], 
   install_requires=[
-          'requests',
           'oauth2',
-          'lxml'
+          'lxml',
+          'requests_oauthlib'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
