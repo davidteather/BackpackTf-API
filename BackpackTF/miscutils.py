@@ -1,8 +1,8 @@
+import requests
+import json
+
 class MiscUtils:
     def __init__(self):
-        import requests
-        import json
-
         r = requests.get("https://backpack.tf/filters")
 
         obj = json.loads(r.text)
@@ -196,3 +196,18 @@ class MiscUtils:
     def steam_id_to_account_id(self, steam_id):
         import struct
         return str(struct.unpack('>L', int(steam_id).to_bytes(8, byteorder='big')[4:])[0])
+
+    # Get information about a steam user
+    def get_user_info(self, steam_id):
+        p = {
+            "steamids": [steam_id]
+        }
+        r = requests.get("https://backpack.tf/api/IGetUsers/v3", params=p)
+
+        obj = json.loads(r.text)
+
+        if obj["response"]["success"] == 1:
+            # steam_id can be either a str or an int
+            return obj["response"]["players"][str(steam_id)]
+        else:
+            return None
