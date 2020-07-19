@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
   name = 'BackpackTF',         
   packages = ['BackpackTF'],   
-  version = '0.1.0',      
+  version = '0.1.3',      
   license='MIT',        
   description = 'The Unoffical Backpack.tf API Wrapper in Python 3.',   
   author = 'David Teather',                   

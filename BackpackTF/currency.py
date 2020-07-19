@@ -65,6 +65,8 @@ class Currency:
         r = requests.get(
             "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
                 success = True
@@ -73,6 +75,8 @@ class Currency:
 
         if success:
             return jsondata['response']['history']
+        else:
+            raise Exception("Unsuccessful Request")
     
     # alias for compatibility with older versions
     # please use the new name, "price_history"
@@ -108,6 +112,8 @@ class Currency:
         r = requests.get(
             "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
                 success = True
@@ -116,6 +122,8 @@ class Currency:
 
         if success:
             return jsondata['response']['history'][len(jsondata['response']['history']) - 1]
+        else:
+            raise Exception("Request Unsuccessful.")
 
     # alias for compatibility with older versions
     # please use the new name, "item_price"
@@ -134,6 +142,8 @@ class Currency:
         r = requests.get("https://backpack.tf/api/IGetPrices/v4?raw=" +
                          str(raw) + "&since=" + str(since) + "&key=" + self.api_key)
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
                 success = True
@@ -142,6 +152,8 @@ class Currency:
 
         if success:
             return jsondata['response']
+        else:
+            raise Exception("Unsuccessful Request")
 
     # alias for compatibility with older versions
     # please use the new name, "get_all_prices"
