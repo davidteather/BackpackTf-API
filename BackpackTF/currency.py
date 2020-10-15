@@ -52,6 +52,8 @@ class Currency:
 
         r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if (
                 jsondata["response"]["success"] == 1
@@ -85,6 +87,8 @@ class Currency:
         encoded = urllib.parse.urlencode(kwargs)
         r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if (
                 jsondata["response"]["success"] == 1
@@ -122,6 +126,8 @@ class Currency:
             + self.api_key
         )
         jsondata = json.loads(r.text)
+
+        success = False
         try:
             if (
                 jsondata["response"]["success"] == 1
