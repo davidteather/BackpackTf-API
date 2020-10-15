@@ -1,13 +1,17 @@
+from requests_oauthlib import OAuth2Session
+from oauthlib.oauth2 import TokenExpiredError
+import requests
+import urllib.parse
+import json
+import requests
+from lxml import html
+
+
 class Account:
     #
     # Inital Thing
     #
-    def __init__(self, client_id="", client_secret="", api_key=""):
-        import requests
-        from requests_oauthlib import OAuth2Session
-        from oauthlib.oauth2 import BackendApplicationClient
-        from oauthlib.oauth2 import TokenExpiredError
-
+    def __init__(self, client_id, client_secret, api_key):
         # Self Things
         self.api_key = api_key
         self.client_id = client_id
@@ -16,8 +20,11 @@ class Account:
         # Gets The Token
         client = BackendApplicationClient(client_id=self.client_id)
         oauth = OAuth2Session(client=client)
-        token = oauth.fetch_token(token_url="https://backpack.tf/oauth/access_token",
-                                  client_id=self.client_id, client_secret=self.client_secret)
+        token = oauth.fetch_token(
+            token_url="https://backpack.tf/oauth/access_token",
+            client_id=self.client_id,
+            client_secret=self.client_secret,
+        )
 
         self.token = token
 
@@ -27,13 +34,11 @@ class Account:
     # id - the listing's ID
     #
     def get_listing(self, listing_id=0):
-        from requests_oauthlib import OAuth2Session
-        from oauthlib.oauth2 import TokenExpiredError
-
         try:
             client = OAuth2Session(self.client_id, token=self.token)
             r = client.get(
-                "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id))
+                "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id)
+            )
 
         except TokenExpiredError as e:
             token = client.post("https://backpack.tf/oauth/access_token")
@@ -41,7 +46,8 @@ class Account:
 
         client = OAuth2Session(self.client_id, token=self.token)
         r = client.get(
-            "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id))
+            "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id)
+        )
 
         return r.text
 
@@ -55,13 +61,11 @@ class Account:
     # id - the listing's ID
     #
     def delete_listing(self, listing_id=0):
-        from requests_oauthlib import OAuth2Session
-        from oauthlib.oauth2 import TokenExpiredError
-
         try:
             client = OAuth2Session(self.client_id, token=self.token)
             r = client.delete(
-                "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id))
+                "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id)
+            )
 
         except TokenExpiredError as e:
             token = client.post("https://backpack.tf/oauth/access_token")
@@ -69,7 +73,8 @@ class Account:
 
         client = OAuth2Session(self.client_id, token=self.token)
         r = client.delete(
-            "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id))
+            "https://backpack.tf/api/1.0/classifieds/listings/" + str(listing_id)
+        )
 
         return r.text
 
@@ -99,14 +104,21 @@ class Account:
     #
     # returns int: 0 or 1, states the success of the listing
     #
-    def create_listing(self, intent=0, id=0, quality=6, item_name="", craftable=1, priceindex=0, offers=0, buyout=1, promoted=0, details="", currencies={"metal": 0}, account_token=""):
-        from requests_oauthlib import OAuth2Session
-        from oauthlib.oauth2 import BackendApplicationClient
-        from oauthlib.oauth2 import TokenExpiredError
-        import urllib.parse
-        import json
-        import requests
-
+    def create_listing(
+        self,
+        intent=0,
+        id=0,
+        quality=6,
+        item_name="",
+        craftable=1,
+        priceindex=0,
+        offers=0,
+        buyout=1,
+        promoted=0,
+        details="",
+        currencies={"metal": 0},
+        account_token="",
+    ):
         if intent == 0:
             payload = {
                 "token": account_token,
@@ -117,15 +129,15 @@ class Account:
                             "quality": str(quality),
                             "item_name": item_name,
                             "craftable": str(craftable),
-                            "priceindex": str(priceindex)
+                            "priceindex": str(priceindex),
                         },
                         "offers": str(offers),
                         "buyout": str(buyout),
                         "promoted": str(promoted),
                         "details": str(details),
-                        "currencies": currencies
+                        "currencies": currencies,
                     }
-                ]
+                ],
             }
         else:
             payload = {
@@ -138,18 +150,17 @@ class Account:
                         "buyout": str(buyout),
                         "promoted": str(promoted),
                         "details": str(details),
-                        "currencies": currencies
+                        "currencies": currencies,
                     }
-                ]
+                ],
             }
 
-        r = requests.post(
-            "https://backpack.tf/api/classifieds/list/v1", json=payload)
+        r = requests.post("https://backpack.tf/api/classifieds/list/v1", json=payload)
 
         jsonResponse = json.loads(r.text)
 
         try:
-            return int(jsonResponse['listings'][item_name]['created'])
+            return int(jsonResponse["listings"][item_name]["created"])
         except:
             return jsonResponse
 
@@ -178,12 +189,26 @@ class Account:
     # sheen - 0-7, in order team shine, deadly daffodil, manndarin, mean green, agonizing emerald, villainous violet, hot rod
     # killstreaker - the id of the killstreaker
     #
-    def search_classifieds(self, intent="dual", page_size=10, fold=1, item_name="", steamid="", tradable="", craftable="", australium="", wear_tier="", quality="",
-                           paint="", particle="", killstreak_tier="", sheen="", killstreaker="", page=0, texture_name=""):
-        import requests
-        import urllib.parse
-        import json
-
+    def search_classifieds(
+        self,
+        intent="dual",
+        page_size=10,
+        fold=1,
+        item_name="",
+        steamid="",
+        tradable="",
+        craftable="",
+        australium="",
+        wear_tier="",
+        quality="",
+        paint="",
+        particle="",
+        killstreak_tier="",
+        sheen="",
+        killstreaker="",
+        page=0,
+        texture_name="",
+    ):
         payload = {
             "key": self.api_key,
             "intent": intent,
@@ -202,13 +227,12 @@ class Account:
             "particle": str(particle),
             "killstreak_tier": str(killstreak_tier),
             "sheen": str(sheen),
-            "killstreaker": str(killstreaker)
+            "killstreaker": str(killstreaker),
         }
 
         encoded = urllib.parse.urlencode(payload)
 
-        r = requests.get(
-            "https://backpack.tf/api/classifieds/search/v1?" + encoded)
+        r = requests.get("https://backpack.tf/api/classifieds/search/v1?" + encoded)
         jsondata = json.loads(r.text)
 
         return jsondata
@@ -217,40 +241,41 @@ class Account:
     # please use the new function name, "search_classifieds" (lowercase c)
     search_Classifieds = search_classifieds
 
-
     #
     # This function extracts the trade url.
     #
-    # listingJSON - the JSON object from the search_listings under whatever the listing thing you use is. 
+    # listingJSON - the JSON object from the search_listings under whatever the listing thing you use is.
     #
     def extract_trade_url(self, listingJSON, proxy=None):
-        from lxml import html
-        import requests
-        import urllib.parse
-        import json
-
         payload = {
-            "item": listingJSON['item']['name'],
-            "steamid": listingJSON['steamid'],
-            "quality": listingJSON['item']['quality']
+            "item": listingJSON["item"]["name"],
+            "steamid": listingJSON["steamid"],
+            "quality": listingJSON["item"]["quality"],
         }
 
         encoded = urllib.parse.urlencode(payload)
 
         if proxy == None:
             r = requests.get(
-                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20"))
+                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20")
+            )
         else:
             r = requests.get(
-                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20"), proxies=proxy)
-        
-        with open('test.html', 'w+', encoding='utf-8') as thing:
+                "https://backpack.tf/classifieds?" + encoded.replace("+", "%20"),
+                proxies=proxy,
+            )
+
+        with open("test.html", "w+", encoding="utf-8") as thing:
             thing.write(r.text)
 
         tree = html.fromstring(r.text)
-        
+
         try:
-            url = tree.xpath("//li[@id='listing-" + listingJSON['id'] + "']/div[@class='listing-item']/div")[0].get('data-listing_offers_url')
+            url = tree.xpath(
+                "//li[@id='listing-"
+                + listingJSON["id"]
+                + "']/div[@class='listing-item']/div"
+            )[0].get("data-listing_offers_url")
             return url
         except:
-            raise IndexError('List index out of range')
+            raise IndexError("List index out of range")

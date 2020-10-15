@@ -1,31 +1,32 @@
+import requests
+import json
+import urllib.parse
+
+
 class Currency:
     #
     # Documentation for the backpack.tf API https://backpack.tf/api/index.html#/
     #
-    def __init__(self, apikey=""):
-        import requests
-        import json
+    def __init__(self, apikey):
+        self.api_key = apikey
 
-        if apikey == "":
-            print("Error, you need to specify an API key")
-
-        else:
-            self.api_key = apikey
+        self.standard_params = {"appid": "440", "key": self.api_key}
 
     #
     # Function Returns A JSON of the value of currencies
     #
     def get_currencies(self):
-        import requests
-        import json
-
         currencies = requests.get(
-            "https://backpack.tf/api/IGetCurrencies/v1?key=" + self.api_key)
+            "https://backpack.tf/api/IGetCurrencies/v1?key=" + self.api_key
+        )
         currencyJSON = json.loads(currencies.text)
-        if currencyJSON['response']['success'] == "1" or currencyJSON['response']['success'] == 1:
-            return currencyJSON['response']['currencies']
+        if (
+            currencyJSON["response"]["success"] == "1"
+            or currencyJSON["response"]["success"] == 1
+        ):
+            return currencyJSON["response"]["currencies"]
         else:
-            raise Exception('Your API key is invalid')
+            raise Exception("Your API key is invalid")
 
     # alias for compatibility with older versions
     # please use the new name, "get_currencies"
@@ -45,39 +46,28 @@ class Currency:
     #   here's a link to an item http://prntscr.com/pf2s0h
     #
 
-    def price_history(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
-        import requests
-        import urllib.parse
-        import json
+    def price_history(self, **kwargs):
+        kwargs.update(self.standard_params)
+        encoded = urllib.parse.urlencode(kwargs)
 
-        payload = {
-            "appid": "440",
-            "quality": str(quality),
-            "item": name,
-            "tradable": str(tradable),
-            "craftable": str(craftable),
-            "priceindex": str(priceIndex),
-            "key": self.api_key
-        }
-
-        encoded = urllib.parse.urlencode(payload)
-
-        r = requests.get(
-            "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
+        r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
 
         success = False
         try:
-            if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
+            if (
+                jsondata["response"]["success"] == 1
+                or jsondata["response"]["success"] == "1"
+            ):
                 success = True
         except:
             return jsondata
 
         if success:
-            return jsondata['response']['history']
+            return jsondata["response"]["history"]
         else:
             raise Exception("Unsuccessful Request")
-    
+
     # alias for compatibility with older versions
     # please use the new name, "price_history"
     priceHistory = price_history
@@ -92,36 +82,26 @@ class Currency:
     # PriceIndex - Not really sure to be honest
     #
 
-    def item_price(self, name="", quality="Unique", craftable=1, tradable=1, priceIndex=0):
-        import requests
-        import urllib.parse
-        import json
-
-        payload = {
-            "appid": "440",
-            "quality": str(quality),
-            "item": name,
-            "tradable": str(tradable),
-            "craftable": str(craftable),
-            "priceindex": str(priceIndex),
-            "key": self.api_key
-        }
-
-        encoded = urllib.parse.urlencode(payload)
-
-        r = requests.get(
-            "https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
+    def item_price(self, **kwargs):
+        kwargs.update(self.standard_params)
+        encoded = urllib.parse.urlencode(kwargs)
+        r = requests.get("https://backpack.tf/api/IGetPriceHistory/v1?" + encoded)
         jsondata = json.loads(r.text)
 
         success = False
         try:
-            if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
+            if (
+                jsondata["response"]["success"] == 1
+                or jsondata["response"]["success"] == "1"
+            ):
                 success = True
         except:
             return jsondata
 
         if success:
-            return jsondata['response']['history'][len(jsondata['response']['history']) - 1]
+            return jsondata["response"]["history"][
+                len(jsondata["response"]["history"]) - 1
+            ]
         else:
             raise Exception("Request Unsuccessful.")
 
@@ -136,22 +116,29 @@ class Currency:
     #
 
     def get_all_prices(self, raw=2, since=0):
-        import requests
-        import json
 
-        r = requests.get("https://backpack.tf/api/IGetPrices/v4?raw=" +
-                         str(raw) + "&since=" + str(since) + "&key=" + self.api_key)
+        r = requests.get(
+            "https://backpack.tf/api/IGetPrices/v4?raw="
+            + str(raw)
+            + "&since="
+            + str(since)
+            + "&key="
+            + self.api_key
+        )
         jsondata = json.loads(r.text)
 
         success = False
         try:
-            if jsondata['response']['success'] == 1 or jsondata['response']['success'] == "1":
+            if (
+                jsondata["response"]["success"] == 1
+                or jsondata["response"]["success"] == "1"
+            ):
                 success = True
         except:
             return jsondata
 
         if success:
-            return jsondata['response']
+            return jsondata["response"]
         else:
             raise Exception("Unsuccessful Request")
 
