@@ -62,15 +62,10 @@ class Currency:
             return jsondata
 
         if success:
-<<<<<<< Updated upstream
-            return jsondata['response']['history']
-    
-=======
             return jsondata["response"]["history"]
         else:
             raise Exception("Unsuccessful Request")
 
->>>>>>> Stashed changes
     # alias for compatibility with older versions
     # please use the new name, "price_history"
     priceHistory = price_history
@@ -100,15 +95,11 @@ class Currency:
             return jsondata
 
         if success:
-<<<<<<< Updated upstream
-            return jsondata['response']['history'][len(jsondata['response']['history']) - 1]
-=======
             return jsondata["response"]["history"][
                 len(jsondata["response"]["history"]) - 1
             ]
         else:
             raise Exception("Request Unsuccessful.")
->>>>>>> Stashed changes
 
     # alias for compatibility with older versions
     # please use the new name, "item_price"
@@ -141,13 +132,9 @@ class Currency:
             return jsondata
 
         if success:
-<<<<<<< Updated upstream
-            return jsondata['response']
-=======
             return jsondata["response"]
         else:
             raise Exception("Unsuccessful Request")
->>>>>>> Stashed changes
 
     # alias for compatibility with older versions
     # please use the new name, "get_all_prices"
