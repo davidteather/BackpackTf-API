@@ -1,5 +1,6 @@
 from BackpackTF import MiscUtils
 
+
 def test_quality_to_int():
     misc = MiscUtils()
 
@@ -14,6 +15,7 @@ def test_quality_to_int():
     assert misc.quality_String_To_Int("Unusual") == 5
     assert misc.quality_String_To_Int("Vintage") == 3
 
+
 def test_particle_to_int():
     misc = MiscUtils()
 
@@ -27,6 +29,7 @@ def test_particle_to_int():
     assert misc.particle_String_To_Int("Cool") == 703
     assert misc.particle_String_To_Int("Dead Presidents") == 60
 
+
 def test_rarity_to_int():
     misc = MiscUtils()
 
@@ -37,6 +40,7 @@ def test_rarity_to_int():
     assert misc.rarity_String_To_Int("Freelance") == 2
     assert misc.rarity_String_To_Int("Immortal") == 7
 
+
 def test_origin_to_int():
     misc = MiscUtils()
 
@@ -45,6 +49,7 @@ def test_origin_to_int():
     assert misc.origin_String_To_Int("Collection Reward") == 16
     assert misc.origin_String_To_Int("Earned") == 9
     assert misc.origin_String_To_Int("Gifted") == 6
+
 
 def test_wear_tier_to_int():
     misc = MiscUtils()
@@ -55,6 +60,7 @@ def test_wear_tier_to_int():
     assert misc.wear_tier_String_To_Int("Well-Worn") == 4
     assert misc.wear_tier_String_To_Int("Battle Scarred") == 5
 
+
 def test_killstreaker_to_int():
     misc = MiscUtils()
 
@@ -64,6 +70,7 @@ def test_killstreaker_to_int():
     assert misc.killstreaker_String_To_Int("Flames") == 2005
     assert misc.killstreaker_String_To_Int("Singularity") == 2006
     assert misc.killstreaker_String_To_Int("Incinerator") == 2007
+
 
 def test_sheen_to_int():
     misc = MiscUtils()
@@ -76,6 +83,7 @@ def test_sheen_to_int():
     assert misc.sheen_String_To_Int("Villainous Violet") == 6
     assert misc.sheen_String_To_Int("Hot Rod") == 7
 
+
 def test_Killstreak_tier_to_int():
     misc = MiscUtils()
 
@@ -83,6 +91,7 @@ def test_Killstreak_tier_to_int():
     assert misc.killstreak_tier_String_To_Int("Standard") == 1
     assert misc.killstreak_tier_String_To_Int("Specialized") == 2
     assert misc.killstreak_tier_String_To_Int("Professional") == 3
+
 
 def test_strange_parts_to_int():
     misc = MiscUtils()
@@ -92,6 +101,7 @@ def test_strange_parts_to_int():
     assert misc.strange_parts_String_To_Int("Assists") == 95
     assert misc.strange_parts_String_To_Int("Critical Kills") == 33
     assert misc.strange_parts_String_To_Int("Damage Dealt") == 82
+
 
 def test_paint_to_Int():
     misc = MiscUtils()
@@ -103,8 +113,8 @@ def test_paint_to_Int():
     assert misc.paint_String_To_Int("After Eight") == 2960676
     assert misc.paint_String_To_Int("Aged Moustache Grey") == 8289918
 
+
 def test_steam_id_to_account_id():
     misc = MiscUtils()
 
     assert misc.steam_id_to_account_id("76561198195716551") == "235450823"
-

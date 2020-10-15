@@ -4,10 +4,6 @@ This is an unoffical api wrapper for the Backpack.tf API in python. You can do a
 
  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/releases) [![Build Status](https://travis-ci.com/davidteather/BackpackTf-API.svg?branch=master)](https://travis-ci.com/davidteather/BackpackTf-API) [![GitHub](https://img.shields.io/github/license/davidteather/BackpackTf-API)](https://github.com/davidteather/BackpackTf-API/blob/master/LICENSE) [![PyPI - Downloads](https://img.shields.io/pypi/dm/BackpackTF)](https://pypi.org/project/BackPackTF/)
 
-## Important Information
-* If this API stops working for any reason open an issue.
-* Feel free to mention @davidteather in an issue you open, because I might not see it otherwise.
-
 ## Getting Started
 
 To get started using this api follow the instructions below.
@@ -15,10 +11,6 @@ To get started using this api follow the instructions below.
 You need to register for an API key and create an app to use all the fucntions of this api at [BackpackTF](https://backpack.tf/developer)
 
 ### Installing
-
-If you need help installing or run into some error, please open an issue. I will try to help out as much as I can.
-
-Tested with python 3.7.3
 
 ```
 pip install BackpackTF
@@ -33,7 +25,7 @@ from BackpackTF import Currency
 
 api = Currency(apikey="xxxxxxxxxxxxxxxxx")
 
-price = api.itemPrice(name="Tour of Duty Ticket", quality="Unique", craftable=1, tradable=1)
+price = api.item_price(item="Tour of Duty Ticket", quality="Unique", craftable=1, tradable=1, priceindex=0)
 
 print(price)
 ```
@@ -134,7 +126,7 @@ returns a dictonary. [Here's](https://gist.github.com/davidteather/4f9c82f3d224e
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| name       | the name of the item you want to search for  |
+| item       | the name of the item you want to search for  |
 | quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
@@ -148,7 +140,7 @@ returns an array of dictionaries. [Here's](https://gist.github.com/davidteather/
 
 | Attributes    | Description   |
 | ------------- | ------------- |
-| name       | the name of the item you want to search for  |
+| item       | the name of the item you want to search for  |
 | quality  | the integer of the quality to search by use MiscUtils().qualityStringToInt("Unique") to get it |
 | craftable       | 0/1  |
 | tradable       | 0/1  |
