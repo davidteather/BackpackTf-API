@@ -1,15 +1,10 @@
-<<<<<<< Updated upstream
-=======
 import requests
 import json
+import struct
 
 
->>>>>>> Stashed changes
 class MiscUtils:
     def __init__(self):
-        import requests
-        import json
-
         r = requests.get("https://backpack.tf/filters")
 
         obj = json.loads(r.text)
@@ -202,11 +197,6 @@ class MiscUtils:
     # Converts steam ID into the account_id account ID is used in trading requests
     #
     def steam_id_to_account_id(self, steam_id):
-        import struct
-<<<<<<< Updated upstream
-        return str(struct.unpack('>L', int(steam_id).to_bytes(8, byteorder='big')[4:])[0])
-=======
-
         return str(
             struct.unpack(">L", int(steam_id).to_bytes(8, byteorder="big")[4:])[0]
         )
@@ -223,4 +213,3 @@ class MiscUtils:
             return obj["response"]["players"][str(steam_id)]
         else:
             return None
->>>>>>> Stashed changes
